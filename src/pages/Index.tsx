@@ -1,12 +1,44 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import HeroSection from '../components/HeroSection';
+import Navigation from '../components/Navigation';
+import AboutSection from '../components/AboutSection';
+import ResumeSection from '../components/ResumeSection';
+import PortfolioSection from '../components/PortfolioSection';
+import ContactSection from '../components/ContactSection';
 
 const Index = () => {
+  const [activeTab, setActiveTab] = useState('about');
+
+  const renderActiveSection = () => {
+    switch (activeTab) {
+      case 'about':
+        return <AboutSection />;
+      case 'resume':
+        return <ResumeSection />;
+      case 'portfolio':
+        return <PortfolioSection />;
+      case 'contact':
+        return <ContactSection />;
+      default:
+        return <AboutSection />;
+    }
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      <HeroSection />
+      <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
+      <motion.main
+        key={activeTab}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-6xl mx-auto px-4 py-8"
+      >
+        {renderActiveSection()}
+      </motion.main>
     </div>
   );
 };
