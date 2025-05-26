@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
@@ -32,7 +31,7 @@ const ResumeSection = () => {
       ]
     },
     {
-      title: "Marketing Manager & Specialist",
+      title: "Instructional Designer",
       company: "Cognizant Technology Solutions, Taguig",
       period: "Aug 2023 - Apr 2024",
       description: "Developed microlearning content using Synthesia, Canva, and Evolve, improving retention by 15%.",
@@ -43,7 +42,7 @@ const ResumeSection = () => {
       ]
     },
     {
-      title: "Marketing Manager & Specialist",
+      title: "Digital Instructional Designer",
       company: "Teletech Holdings, Mandaluyong",
       period: "May 2022 - Aug 2023",
       description: "Developed microlearning content using Synthesia, Canva, and 7taps, improving retention by 15%.",
