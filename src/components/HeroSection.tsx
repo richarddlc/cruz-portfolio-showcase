@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Briefcase, Mail, Contact } from 'lucide-react';
@@ -17,9 +16,13 @@ const HeroSection = () => {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="w-32 h-32 mx-auto mb-6 rounded-full bg-white bg-opacity-20 flex items-center justify-center"
+          className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white border-opacity-30 shadow-xl"
         >
-          <span className="text-4xl font-bold">RC</span>
+          <img 
+            src="/lovable-uploads/4c81daa7-2065-4776-80a5-c26a4c04aa29.png" 
+            alt="Richard de la Cruz"
+            className="w-full h-full object-cover"
+          />
         </motion.div>
         
         <motion.h1
