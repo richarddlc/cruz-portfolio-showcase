@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
@@ -63,13 +62,13 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-medium text-gray-800 mb-2">Email</h4>
                   <p className="text-blue-600 hover:text-blue-700 transition-colors">
-                    richard.delacruz@email.com
+                    chard.bdc@gmail.com
                   </p>
                 </div>
                 
                 <div>
                   <h4 className="font-medium text-gray-800 mb-2">Phone</h4>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
+                  <p className="text-gray-600">+639494641158</p>
                 </div>
                 
                 <div>
