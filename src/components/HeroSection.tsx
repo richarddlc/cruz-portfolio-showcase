@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Briefcase, Mail, Contact } from 'lucide-react';
@@ -49,8 +50,9 @@ const HeroSection = () => {
           transition={{ delay: 0.9, duration: 0.6 }}
           className="text-lg max-w-2xl mx-auto leading-relaxed"
         >
-          Creating engaging learning experiences that transform knowledge into action. 
-          Passionate about designing innovative educational solutions that make learning memorable and effective.
+          5+ years of experience delivering engaging digital learning solutions across finance, BPO, and tech industries. 
+          Expert in eLearning development, multimedia integration, and applying proven instructional design methodologies 
+          to drive learner retention and business results.
         </motion.p>
       </div>
       
