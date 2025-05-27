@@ -1,69 +1,9 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { useToast } from '@/hooks/use-toast';
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      // Create mailto link with form data
-      const emailSubject = encodeURIComponent(`Portfolio Contact: ${formData.subject}`);
-      const emailBody = encodeURIComponent(
-        `Name: ${formData.name}\n` +
-        `Email: ${formData.email}\n` +
-        `Subject: ${formData.subject}\n\n` +
-        `Message:\n${formData.message}\n\n` +
-        `---\nSent from Portfolio Contact Form`
-      );
-      
-      const mailtoLink = `mailto:chard.bdc@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-      
-      // Open email client
-      window.location.href = mailtoLink;
-      
-      toast({
-        title: "Email client opened!",
-        description: "Your default email client should open with the message pre-filled. Please send the email to complete your inquiry.",
-      });
-      
-      // Reset form
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      console.error('Error processing form:', error);
-      toast({
-        title: "Error",
-        description: "There was an issue processing your request. Please try again or contact chard.bdc@gmail.com directly.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   return (
     <motion.div
       id="contact-section"
@@ -81,121 +21,45 @@ const ContactSection = () => {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="max-w-2xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <Card className="p-6 h-full">
+          <Card className="p-8">
             <CardContent className="p-0">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-6">Let's Connect</h3>
+              <h3 className="text-2xl font-semibold text-gray-800 mb-8 text-center">Send Me A Message</h3>
               
               <div className="space-y-6">
-                <div>
+                <div className="text-center">
                   <h4 className="font-medium text-gray-800 mb-2">Email</h4>
-                  <p className="text-blue-600 hover:text-blue-700 transition-colors">
+                  <p className="text-blue-600 hover:text-blue-700 transition-colors text-lg">
                     chard.bdc@gmail.com
                   </p>
                 </div>
                 
-                <div>
+                <div className="text-center">
                   <h4 className="font-medium text-gray-800 mb-2">Phone</h4>
-                  <p className="text-gray-600">+639494641158</p>
+                  <p className="text-gray-600 text-lg">+639494641158</p>
                 </div>
                 
-                <div>
+                <div className="text-center">
                   <h4 className="font-medium text-gray-800 mb-2">Location</h4>
                   <p className="text-gray-600">Available for remote collaboration worldwide</p>
                 </div>
                 
-                <div>
-                  <h4 className="font-medium text-gray-800 mb-3">Services</h4>
-                  <ul className="space-y-1 text-gray-600">
-                    <li>• Custom E-Learning Development</li>
-                    <li>• Curriculum Design & Strategy</li>
-                    <li>• Learning Management System Setup</li>
-                    <li>• Training Program Assessment</li>
-                    <li>• Educational Technology Consulting</li>
+                <div className="border-t pt-6">
+                  <h4 className="font-medium text-gray-800 mb-3 text-center">Services</h4>
+                  <ul className="space-y-2 text-gray-600">
+                    <li className="text-center">• Custom E-Learning Development</li>
+                    <li className="text-center">• Curriculum Design & Strategy</li>
+                    <li className="text-center">• Learning Management System Setup</li>
+                    <li className="text-center">• Training Program Assessment</li>
+                    <li className="text-center">• Educational Technology Consulting</li>
                   </ul>
                 </div>
               </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.4 }}
-        >
-          <Card className="p-6">
-            <CardContent className="p-0">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-6">Send a Message</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="name">Name *</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="mt-1"
-                      placeholder="Your full name"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="email">Email *</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="mt-1"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <Label htmlFor="subject">Subject *</Label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="mt-1"
-                    placeholder="What's this about?"
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="message">Message *</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    className="mt-1 min-h-32"
-                    placeholder="Tell me about your project or learning challenge..."
-                  />
-                </div>
-                
-                <Button 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="w-full bg-blue-600 hover:bg-blue-700 transition-colors"
-                >
-                  {isSubmitting ? 'Processing...' : 'Send Message'}
-                </Button>
-              </form>
             </CardContent>
           </Card>
         </motion.div>
