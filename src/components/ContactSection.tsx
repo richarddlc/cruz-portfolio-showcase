@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
@@ -14,15 +15,46 @@ const ContactSection = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      // Create mailto link with form data
+      const emailSubject = encodeURIComponent(`Portfolio Contact: ${formData.subject}`);
+      const emailBody = encodeURIComponent(
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Subject: ${formData.subject}\n\n` +
+        `Message:\n${formData.message}\n\n` +
+        `---\nSent from Portfolio Contact Form`
+      );
+      
+      const mailtoLink = `mailto:chard.bdc@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
+      toast({
+        title: "Email client opened!",
+        description: "Your default email client should open with the message pre-filled. Please send the email to complete your inquiry.",
+      });
+      
+      // Reset form
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Error processing form:', error);
+      toast({
+        title: "Error",
+        description: "There was an issue processing your request. Please try again or contact chard.bdc@gmail.com directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -34,6 +66,7 @@ const ContactSection = () => {
 
   return (
     <motion.div
+      id="contact-section"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
@@ -157,9 +190,10 @@ const ContactSection = () => {
                 
                 <Button 
                   type="submit" 
+                  disabled={isSubmitting}
                   className="w-full bg-blue-600 hover:bg-blue-700 transition-colors"
                 >
-                  Send Message
+                  {isSubmitting ? 'Processing...' : 'Send Message'}
                 </Button>
               </form>
             </CardContent>

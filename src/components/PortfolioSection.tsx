@@ -1,45 +1,213 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { ExternalLink, Calendar, User, Briefcase, Target, Lightbulb, Wrench, Award } from 'lucide-react';
 
 const PortfolioSection = () => {
   const projects = [
     {
-      title: "Corporate Leadership Development Program",
-      category: "Leadership Training",
-      description: "Comprehensive e-learning program designed for emerging leaders, featuring interactive scenarios, peer collaboration tools, and performance analytics.",
-      technologies: ["Articulate Storyline", "LMS Integration", "Video Production", "Assessment Design"],
-      results: "95% completion rate, 40% improvement in leadership skills assessment",
-      image: "/placeholder.svg"
+      id: 'escape-room',
+      title: "Nice to Know: Escape Room Module",
+      category: "Gamified Microlearning",
+      description: "A gamified e-learning experience created for seasoned Plan Specialists at Sun Life. Designed as an escape room, the module reinforces additional product knowledge through interactive challenges, puzzles, and scenario-based tasks.",
+      technologies: ["Articulate Storyline", "Gamification", "Scenario-Based Learning", "Instructional Design", "Microlearning"],
+      results: "High engagement among advanced learners, positive feedback for creativity, and successful knowledge reinforcement beyond core topics.",
+      image: "/placeholder.svg",
+      projectUrl: "https://richardportfolio10.s3.ap-southeast-2.amazonaws.com/Nice+to+Know_Richard+-+Storyline+output/story.html",
+      details: {
+        client: "Sun Life Financial",
+        tool: "Articulate Storyline 360",
+        role: "Instructional Designer",
+        type: "Self-paced E-learning / Gamified Learning",
+        date: "March 2025",
+        overview: "This module was part of the GB Admin Life Plan curriculum designed for experienced Plan Specialists. Rather than reiterating core knowledge, it provided additional context, updates, and historical insights—packaged in a fun, gamified experience using an escape room format to boost engagement.",
+        objectives: [
+          "Deepen understanding of non-critical but relevant topics like Paid-Up Life, Clarica Heritage, and non-coded Phoenix scenarios.",
+          "Encourage self-directed discovery through puzzles and scenario-based learning.",
+          "Reinforce key updates via challenge-based tasks and knowledge checks."
+        ],
+        strategies: [
+          "Gamification: Learners solve puzzles to progress through different \"rooms,\" each representing a knowledge topic.",
+          "Scenario-Based Learning: Challenges were wrapped in realistic, work-relevant scenarios.",
+          "Immediate Feedback: Learners received guided feedback after each activity to reinforce correct understanding."
+        ],
+        features: [
+          "Articulate Storyline 360 with custom triggers and branching",
+          "Drag-and-drop activities, locked progression, and timers",
+          "Custom avatars and themed visuals for immersion",
+          "Final \"Self Check\" room with cumulative scenario challenges"
+        ],
+        outcome: "The module received positive feedback from internal SMEs and learners for its creativity and effectiveness. It was praised for being a refreshing departure from traditional compliance-focused modules while still reinforcing critical operational context."
+      }
     },
     {
-      title: "Healthcare Compliance Training Suite",
-      category: "Compliance Training",
-      description: "Multi-module training program covering HIPAA, safety protocols, and emergency procedures with gamified elements and real-world scenarios.",
-      technologies: ["Adobe Captivate", "SCORM", "Mobile Learning", "Microlearning"],
-      results: "100% regulatory compliance achieved, 30% reduction in incidents",
-      image: "/placeholder.svg"
-    },
-    {
-      title: "Sales Performance Accelerator",
-      category: "Sales Training",
-      description: "Interactive sales methodology training with role-playing simulations, objection handling practice, and performance tracking dashboards.",
-      technologies: ["Custom Development", "Video Conferencing", "CRM Integration", "Analytics"],
-      results: "25% increase in sales performance, 60% faster onboarding",
-      image: "/placeholder.svg"
-    },
-    {
-      title: "Technical Skills Certification Program",
-      category: "Technical Training",
-      description: "Blended learning approach combining hands-on labs, virtual simulations, and competency-based assessments for IT professionals.",
-      technologies: ["Virtual Labs", "Simulation Software", "Adaptive Learning", "Certification Tracking"],
-      results: "85% certification pass rate, 50% reduction in training time",
-      image: "/placeholder.svg"
+      id: 'gib-case-study',
+      title: "GIB Case Study Module",
+      category: "Scenario-Based Training",
+      description: "Interactive case study training for Case Managers to strengthen decision-making on Guaranteed Insurability Benefit (GIB) requests. Includes realistic scenarios, system simulations, and ATHENA-based guidance.",
+      technologies: ["Articulate Storyline", "Scenario-Based Learning", "System Simulation", "Branching Logic", "Instructional Design"],
+      results: "Improved learner confidence and accuracy in GIB handling, with strong SME endorsement for real-world alignment.",
+      image: "/placeholder.svg",
+      projectUrl: "https://richardportfolio10.s3.ap-southeast-2.amazonaws.com/GIB+Case+Study_Richard/story.html",
+      details: {
+        client: "Sun Life Financial",
+        tool: "Articulate Storyline 360",
+        role: "Instructional Designer",
+        type: "Self-paced E-learning | Case Study Simulation",
+        date: "March 2025",
+        overview: "This module is part of the My New Business Options Learning Curriculum tailored for Case Managers. It focuses on helping learners navigate Guaranteed Insurability Benefit (GIB) cases through interactive case studies, guided decision-making, and realistic system simulations using ATHENA procedures.",
+        objectives: [
+          "Understand how to identify and assess GIB requests.",
+          "Navigate the correct procedures using PHOENIX and ATHENA systems.",
+          "Apply judgment in nuanced scenarios using real-life case data."
+        ],
+        strategies: [
+          "Scenario-Based Learning: Multiple case studies drawn from real GIB situations.",
+          "Guided Prompts: Learners make decisions with immediate feedback.",
+          "System Simulation Walkthroughs: Simulated screens to reinforce navigation and actions in PHOENIX.",
+          "Branching Logic: Paths differ based on learner choices, allowing them to explore consequences."
+        ],
+        features: [
+          "Articulate Storyline 360 with advanced triggers",
+          "Custom feedback layers",
+          "Simulated UI based on Sun Life's PHOENIX system",
+          "Embedded ATHENA procedure notes"
+        ],
+        outcome: "Learners reported greater confidence in managing GIB scenarios. SMEs commended the training for its realism and accuracy. The module became a benchmark for other case study-based trainings in the curriculum."
+      }
     }
   ];
+
+  const ProjectDetailsModal = ({ project }) => (
+    <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+      <DialogHeader>
+        <DialogTitle className="text-2xl font-bold text-gray-800 mb-4">
+          {project.title}
+        </DialogTitle>
+      </DialogHeader>
+      
+      <div className="space-y-6">
+        {/* Project Metadata */}
+        <div className="grid md:grid-cols-2 gap-4 p-4 bg-blue-50 rounded-lg">
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <User className="w-4 h-4 text-blue-600" />
+              <span className="font-medium">Client:</span> {project.details.client}
+            </div>
+            <div className="flex items-center gap-2">
+              <Wrench className="w-4 h-4 text-blue-600" />
+              <span className="font-medium">Tool Used:</span> {project.details.tool}
+            </div>
+          </div>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <Briefcase className="w-4 h-4 text-blue-600" />
+              <span className="font-medium">Role:</span> {project.details.role}
+            </div>
+            <div className="flex items-center gap-2">
+              <Calendar className="w-4 h-4 text-blue-600" />
+              <span className="font-medium">Date:</span> {project.details.date}
+            </div>
+          </div>
+        </div>
+
+        {/* Project Type */}
+        <div className="flex items-center gap-2">
+          <Badge variant="secondary" className="text-blue-700 border-blue-300">
+            {project.details.type}
+          </Badge>
+        </div>
+
+        {/* Project Overview */}
+        <div>
+          <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center gap-2">
+            <Target className="w-5 h-5 text-blue-600" />
+            Project Overview
+          </h3>
+          <p className="text-gray-600 leading-relaxed">{project.details.overview}</p>
+        </div>
+
+        {/* Learning Objectives */}
+        <div>
+          <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center gap-2">
+            <Target className="w-5 h-5 text-green-600" />
+            Learning Objectives
+          </h3>
+          <ul className="space-y-2">
+            {project.details.objectives.map((objective, index) => (
+              <li key={index} className="flex items-start gap-2 text-gray-600">
+                <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                {objective}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Instructional Strategies */}
+        <div>
+          <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center gap-2">
+            <Lightbulb className="w-5 h-5 text-orange-600" />
+            Instructional Strategies
+          </h3>
+          <ul className="space-y-2">
+            {project.details.strategies.map((strategy, index) => (
+              <li key={index} className="flex items-start gap-2 text-gray-600">
+                <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                {strategy}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Tools & Features */}
+        <div>
+          <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center gap-2">
+            <Wrench className="w-5 h-5 text-purple-600" />
+            Tools & Features
+          </h3>
+          <ul className="space-y-2">
+            {project.details.features.map((feature, index) => (
+              <li key={index} className="flex items-start gap-2 text-gray-600">
+                <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Outcome */}
+        <div>
+          <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center gap-2">
+            <Award className="w-5 h-5 text-green-600" />
+            Outcome
+          </h3>
+          <p className="text-gray-600 leading-relaxed">{project.details.outcome}</p>
+        </div>
+
+        {/* View Project Button */}
+        <div className="pt-4 border-t">
+          <Button 
+            onClick={() => window.open(project.projectUrl, '_blank')}
+            className="bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2"
+          >
+            <ExternalLink className="w-4 h-4" />
+            View Project
+          </Button>
+        </div>
+      </div>
+    </DialogContent>
+  );
+
+  const scrollToContact = () => {
+    const contactElement = document.getElementById('contact-section');
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <motion.div
@@ -100,9 +268,14 @@ const PortfolioSection = () => {
                       <p className="text-green-700 font-medium">{project.results}</p>
                     </div>
                     
-                    <Button variant="outline" className="hover:bg-blue-50 hover:text-blue-700 hover:border-blue-300">
-                      View Case Study
-                    </Button>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button variant="outline" className="hover:bg-blue-50 hover:text-blue-700 hover:border-blue-300">
+                          {project.id === 'escape-room' ? 'Show more' : 'View Case Study'}
+                        </Button>
+                      </DialogTrigger>
+                      <ProjectDetailsModal project={project} />
+                    </Dialog>
                   </CardContent>
                 </div>
               </div>
@@ -118,7 +291,10 @@ const PortfolioSection = () => {
             Every project is an opportunity to create something amazing. Let's work together to design 
             learning experiences that make a real difference.
           </p>
-          <Button className="bg-blue-600 hover:bg-blue-700">
+          <Button 
+            onClick={scrollToContact}
+            className="bg-blue-600 hover:bg-blue-700"
+          >
             Discuss Your Project
           </Button>
         </CardContent>
