@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import HeroSection from '../components/HeroSection';
 import Navigation from '../components/Navigation';
@@ -10,6 +10,19 @@ import ContactSection from '../components/ContactSection';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('about');
+
+  // Listen for custom tab change events from portfolio section
+  useEffect(() => {
+    const handleChangeTab = (event: CustomEvent) => {
+      setActiveTab(event.detail);
+    };
+
+    window.addEventListener('changeTab', handleChangeTab as EventListener);
+    
+    return () => {
+      window.removeEventListener('changeTab', handleChangeTab as EventListener);
+    };
+  }, []);
 
   const renderActiveSection = () => {
     switch (activeTab) {

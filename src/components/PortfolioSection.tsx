@@ -16,7 +16,7 @@ const PortfolioSection = () => {
       description: "A gamified e-learning experience created for seasoned Plan Specialists at Sun Life. Designed as an escape room, the module reinforces additional product knowledge through interactive challenges, puzzles, and scenario-based tasks.",
       technologies: ["Articulate Storyline", "Gamification", "Scenario-Based Learning", "Instructional Design", "Microlearning"],
       results: "High engagement among advanced learners, positive feedback for creativity, and successful knowledge reinforcement beyond core topics.",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/29adc79c-fea9-4732-affc-1451969ce42c.png",
       projectUrl: "https://richardportfolio10.s3.ap-southeast-2.amazonaws.com/Nice+to+Know_Richard+-+Storyline+output/story.html",
       details: {
         client: "Sun Life Financial",
@@ -51,7 +51,7 @@ const PortfolioSection = () => {
       description: "Interactive case study training for Case Managers to strengthen decision-making on Guaranteed Insurability Benefit (GIB) requests. Includes realistic scenarios, system simulations, and ATHENA-based guidance.",
       technologies: ["Articulate Storyline", "Scenario-Based Learning", "System Simulation", "Branching Logic", "Instructional Design"],
       results: "Improved learner confidence and accuracy in GIB handling, with strong SME endorsement for real-world alignment.",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/a789491c-7614-44a9-bccb-3edd5eadb725.png",
       projectUrl: "https://richardportfolio10.s3.ap-southeast-2.amazonaws.com/GIB+Case+Study_Richard/story.html",
       details: {
         client: "Sun Life Financial",
@@ -203,9 +203,25 @@ const PortfolioSection = () => {
   );
 
   const scrollToContact = () => {
-    const contactElement = document.getElementById('contact-section');
-    if (contactElement) {
-      contactElement.scrollIntoView({ behavior: 'smooth' });
+    // First check if we're on the contact tab, if not switch to it
+    const currentUrl = window.location.href;
+    if (!currentUrl.includes('#contact')) {
+      // Dispatch a custom event to change the tab
+      const event = new CustomEvent('changeTab', { detail: 'contact' });
+      window.dispatchEvent(event);
+      
+      // Then scroll to the contact section after a short delay
+      setTimeout(() => {
+        const contactElement = document.getElementById('contact-section');
+        if (contactElement) {
+          contactElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 300);
+    } else {
+      const contactElement = document.getElementById('contact-section');
+      if (contactElement) {
+        contactElement.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -239,7 +255,7 @@ const PortfolioSection = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-64 md:h-full object-cover bg-gradient-to-br from-blue-100 to-indigo-100"
+                    className="w-full h-64 md:h-full object-cover"
                   />
                 </div>
                 <div className="md:w-2/3 p-6">
