@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
@@ -81,7 +80,7 @@ const ProfessionalExperience = () => {
 
   return (
     <section>
-      <h3 className="text-2xl font-semibold text-gray-800 mb-6">Professional Experience</h3>
+      <h3 className="text-2xl font-semibold text-white mb-6">Professional Experience</h3>
       <div className="space-y-6">
         {experiences.map((exp, index) => (
           <motion.div

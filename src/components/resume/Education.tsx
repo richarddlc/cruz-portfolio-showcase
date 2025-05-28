@@ -12,7 +12,7 @@ const Education = () => {
 
   return (
     <section>
-      <h3 className="text-2xl font-semibold text-gray-800 mb-6">Education</h3>
+      <h3 className="text-2xl font-semibold text-white mb-6">Education</h3>
       <Card className="p-6 hover:shadow-lg transition-shadow duration-300">
         <CardContent className="p-0">
           <h4 className="text-lg font-semibold text-gray-800">{education.degree}</h4>

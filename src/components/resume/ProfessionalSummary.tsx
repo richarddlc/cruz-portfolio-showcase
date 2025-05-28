@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 const ProfessionalSummary = () => {
   return (
     <section>
-      <h3 className="text-2xl font-semibold text-gray-800 mb-6">Professional Summary</h3>
+      <h3 className="text-2xl font-semibold text-white mb-6">Professional Summary</h3>
       <Card className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
         <CardContent className="p-0">
           <p className="text-gray-700 leading-relaxed">

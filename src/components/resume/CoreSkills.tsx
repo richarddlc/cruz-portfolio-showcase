@@ -23,7 +23,7 @@ const CoreSkills = () => {
 
   return (
     <section>
-      <h3 className="text-2xl font-semibold text-gray-800 mb-6">Core Skills</h3>
+      <h3 className="text-2xl font-semibold text-white mb-6">Core Skills</h3>
       <Card className="p-6">
         <CardContent className="p-0">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
@@ -30,7 +29,7 @@ const AboutSection = () => {
       className="space-y-8"
     >
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-800 mb-4">About Me</h2>
+        <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
         <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
       </div>
 
