@@ -15,7 +15,6 @@ const ContactInformation = () => {
             </div>
             <div>
               <p><strong>Location:</strong> Mandaluyong City</p>
-              <p><strong>Portfolio:</strong> https://richardbdelacruz.my.canva.site/</p>
             </div>
           </div>
         </CardContent>

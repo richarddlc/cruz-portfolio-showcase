@@ -4,75 +4,206 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 
 const ContactSection = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30,
+      scale: 0.95
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 40,
+      rotateX: 10
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      rotateX: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const serviceItemVariants = {
+    hidden: { 
+      opacity: 0, 
+      x: -20
+    },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <motion.div
       id="contact-section"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      viewport={{ once: true, amount: 0.3 }}
       className="space-y-8"
     >
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
-        <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full mb-4"></div>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+      <motion.div 
+        variants={itemVariants}
+        className="text-center mb-12"
+      >
+        <motion.h2 
+          variants={itemVariants}
+          className="text-4xl font-bold text-gray-800 mb-4"
+        >
+          Get In Touch
+        </motion.h2>
+        <motion.div 
+          variants={itemVariants}
+          className="w-24 h-1 bg-blue-600 mx-auto rounded-full mb-4"
+        ></motion.div>
+        <motion.p 
+          variants={itemVariants}
+          className="text-gray-600 max-w-2xl mx-auto"
+        >
           Ready to transform your learning initiatives? Let's discuss how we can create 
           engaging educational experiences that drive real results.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       <div className="max-w-2xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          variants={cardVariants}
+          whileHover={{ 
+            scale: 1.02,
+            transition: { duration: 0.2 }
+          }}
         >
           <Card className="p-8">
             <CardContent className="p-0">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-8 text-center">Send Me A Message</h3>
+              <motion.h3 
+                variants={itemVariants}
+                className="text-2xl font-semibold text-gray-800 mb-8 text-center"
+              >
+                Send Me A Message
+              </motion.h3>
               
               <div className="space-y-6">
-                <div className="text-center">
+                <motion.div 
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05 }}
+                  className="text-center"
+                >
                   <h4 className="font-medium text-gray-800 mb-2">Email</h4>
                   <p className="text-blue-600 hover:text-blue-700 transition-colors text-lg">
                     chard.bdc@gmail.com
                   </p>
-                </div>
+                </motion.div>
                 
-                <div className="text-center">
+                <motion.div 
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05 }}
+                  className="text-center"
+                >
                   <h4 className="font-medium text-gray-800 mb-2">Phone</h4>
                   <p className="text-gray-600 text-lg">+639494641158</p>
-                </div>
+                </motion.div>
                 
-                <div className="text-center">
+                <motion.div 
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05 }}
+                  className="text-center"
+                >
                   <h4 className="font-medium text-gray-800 mb-2">Location</h4>
                   <p className="text-gray-600">Available for remote collaboration worldwide</p>
-                </div>
+                </motion.div>
                 
-                <div className="border-t pt-6">
+                <motion.div 
+                  variants={itemVariants}
+                  className="border-t pt-6"
+                >
                   <h4 className="font-medium text-gray-800 mb-3 text-center">Services</h4>
-                  <ul className="space-y-2 text-gray-600">
-                    <li className="text-center">• Custom E-Learning Development</li>
-                    <li className="text-center">• Curriculum Design & Strategy</li>
-                    <li className="text-center">• Learning Management System Setup</li>
-                    <li className="text-center">• Training Program Assessment</li>
-                    <li className="text-center">• Educational Technology Consulting</li>
-                  </ul>
-                </div>
+                  <motion.ul 
+                    className="space-y-2 text-gray-600"
+                    variants={containerVariants}
+                  >
+                    {[
+                      "Custom E-Learning Development",
+                      "Curriculum Design & Strategy", 
+                      "Learning Management System Setup",
+                      "Training Program Assessment",
+                      "Educational Technology Consulting"
+                    ].map((service, index) => (
+                      <motion.li 
+                        key={index}
+                        variants={serviceItemVariants}
+                        whileHover={{ 
+                          x: 10,
+                          color: "#2563eb",
+                          transition: { duration: 0.2 }
+                        }}
+                        className="text-center cursor-default"
+                      >
+                        • {service}
+                      </motion.li>
+                    ))}
+                  </motion.ul>
+                </motion.div>
               </div>
             </CardContent>
           </Card>
         </motion.div>
       </div>
 
-      <Card className="p-6 bg-gradient-to-r from-green-50 to-blue-50 border-green-200">
-        <CardContent className="p-0 text-center">
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">Quick Response Guaranteed</h3>
-          <p className="text-gray-600">
-            I typically respond to all inquiries within 24 hours. Looking forward to hearing about your project!
-          </p>
-        </CardContent>
-      </Card>
+      <motion.div
+        variants={cardVariants}
+        whileHover={{ 
+          scale: 1.02,
+          transition: { duration: 0.2 }
+        }}
+      >
+        <Card className="p-6 bg-gradient-to-r from-green-50 to-blue-50 border-green-200">
+          <CardContent className="p-0 text-center">
+            <motion.h3 
+              variants={itemVariants}
+              className="text-xl font-semibold text-gray-800 mb-2"
+            >
+              Quick Response Guaranteed
+            </motion.h3>
+            <motion.p 
+              variants={itemVariants}
+              className="text-gray-600"
+            >
+              I typically respond to all inquiries within 24 hours. Looking forward to hearing about your project!
+            </motion.p>
+          </CardContent>
+        </Card>
+      </motion.div>
     </motion.div>
   );
 };
