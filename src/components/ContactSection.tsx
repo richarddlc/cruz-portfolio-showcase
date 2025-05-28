@@ -79,17 +79,17 @@ const ContactSection = () => {
       >
         <motion.h2 
           variants={itemVariants}
-          className="text-4xl font-bold text-gray-800 mb-4"
+          className="text-4xl font-bold text-white mb-4"
         >
           Get In Touch
         </motion.h2>
         <motion.div 
           variants={itemVariants}
-          className="w-24 h-1 bg-blue-600 mx-auto rounded-full mb-4"
+          className="w-24 h-1 bg-green-400 mx-auto rounded-full mb-4"
         ></motion.div>
         <motion.p 
           variants={itemVariants}
-          className="text-gray-600 max-w-2xl mx-auto"
+          className="text-gray-300 max-w-2xl mx-auto"
         >
           Ready to transform your learning initiatives? Let's discuss how we can create 
           engaging educational experiences that drive real results.
@@ -104,11 +104,11 @@ const ContactSection = () => {
             transition: { duration: 0.2 }
           }}
         >
-          <Card className="p-8">
+          <Card className="p-8 bg-gray-800/80 border-gray-700 backdrop-blur-sm">
             <CardContent className="p-0">
               <motion.h3 
                 variants={itemVariants}
-                className="text-2xl font-semibold text-gray-800 mb-8 text-center"
+                className="text-2xl font-semibold text-white mb-8 text-center"
               >
                 Send Me A Message
               </motion.h3>
@@ -119,8 +119,8 @@ const ContactSection = () => {
                   whileHover={{ scale: 1.05 }}
                   className="text-center"
                 >
-                  <h4 className="font-medium text-gray-800 mb-2">Email</h4>
-                  <p className="text-blue-600 hover:text-blue-700 transition-colors text-lg">
+                  <h4 className="font-medium text-white mb-2">Email</h4>
+                  <p className="text-green-400 hover:text-green-300 transition-colors text-lg">
                     chard.bdc@gmail.com
                   </p>
                 </motion.div>
@@ -130,8 +130,8 @@ const ContactSection = () => {
                   whileHover={{ scale: 1.05 }}
                   className="text-center"
                 >
-                  <h4 className="font-medium text-gray-800 mb-2">Phone</h4>
-                  <p className="text-gray-600 text-lg">+639494641158</p>
+                  <h4 className="font-medium text-white mb-2">Phone</h4>
+                  <p className="text-gray-300 text-lg">+639494641158</p>
                 </motion.div>
                 
                 <motion.div 
@@ -139,17 +139,17 @@ const ContactSection = () => {
                   whileHover={{ scale: 1.05 }}
                   className="text-center"
                 >
-                  <h4 className="font-medium text-gray-800 mb-2">Location</h4>
-                  <p className="text-gray-600">Available for remote collaboration worldwide</p>
+                  <h4 className="font-medium text-white mb-2">Location</h4>
+                  <p className="text-gray-300">Available for remote collaboration worldwide</p>
                 </motion.div>
                 
                 <motion.div 
                   variants={itemVariants}
-                  className="border-t pt-6"
+                  className="border-t border-gray-700 pt-6"
                 >
-                  <h4 className="font-medium text-gray-800 mb-3 text-center">Services</h4>
+                  <h4 className="font-medium text-white mb-3 text-center">Services</h4>
                   <motion.ul 
-                    className="space-y-2 text-gray-600"
+                    className="space-y-2 text-gray-300"
                     variants={containerVariants}
                   >
                     {[
@@ -164,7 +164,7 @@ const ContactSection = () => {
                         variants={serviceItemVariants}
                         whileHover={{ 
                           x: 10,
-                          color: "#2563eb",
+                          color: "#10b981",
                           transition: { duration: 0.2 }
                         }}
                         className="text-center cursor-default"
@@ -187,17 +187,17 @@ const ContactSection = () => {
           transition: { duration: 0.2 }
         }}
       >
-        <Card className="p-6 bg-gradient-to-r from-green-50 to-blue-50 border-green-200">
+        <Card className="p-6 bg-gradient-to-r from-green-900/40 to-gray-800/40 border-green-700/50 backdrop-blur-sm">
           <CardContent className="p-0 text-center">
             <motion.h3 
               variants={itemVariants}
-              className="text-xl font-semibold text-gray-800 mb-2"
+              className="text-xl font-semibold text-white mb-2"
             >
               Quick Response Guaranteed
             </motion.h3>
             <motion.p 
               variants={itemVariants}
-              className="text-gray-600"
+              className="text-gray-300"
             >
               I typically respond to all inquiries within 24 hours. Looking forward to hearing about your project!
             </motion.p>

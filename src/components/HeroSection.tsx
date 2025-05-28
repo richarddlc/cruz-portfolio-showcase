@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Briefcase, Mail, Contact } from 'lucide-react';
+import { Download, Github, Linkedin, Mail, Twitter } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -9,60 +9,138 @@ const HeroSection = () => {
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="relative bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20 px-4 overflow-hidden"
+      className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-20 px-4 overflow-hidden min-h-screen flex items-center"
     >
-      <div className="absolute inset-0 bg-black opacity-10"></div>
-      <div className="relative max-w-4xl mx-auto text-center">
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white border-opacity-30 shadow-xl"
-        >
-          <img 
-            src="/lovable-uploads/4c81daa7-2065-4776-80a5-c26a4c04aa29.png" 
-            alt="Richard de la Cruz"
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
-        
-        <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent"
-        >
-          Richard de la Cruz
-        </motion.h1>
-        
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7, duration: 0.6 }}
-          className="text-xl md:text-2xl mb-6 text-blue-100"
-        >
-          Instructional Designer
-        </motion.p>
-        
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.9, duration: 0.6 }}
-          className="text-lg max-w-2xl mx-auto leading-relaxed"
-        >
-          5+ years of experience delivering engaging digital learning solutions across finance, BPO, and tech industries. 
-          Expert in eLearning development, multimedia integration, and applying proven instructional design methodologies 
-          to drive learner retention and business results.
-        </motion.p>
-      </div>
+      <div className="absolute inset-0 bg-black opacity-20"></div>
       
-      <div className="absolute -bottom-1 left-0 right-0">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-16 fill-slate-50">
-          <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"></path>
-          <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"></path>
-          <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
-        </svg>
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-20 w-32 h-32 border border-green-400 rounded-full"></div>
+        <div className="absolute bottom-40 right-20 w-24 h-24 border border-green-400 rounded-full"></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 border border-green-400 rounded-full"></div>
       </div>
+
+      <div className="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        {/* Left side - Text content */}
+        <div className="space-y-8">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            <p className="text-green-400 text-lg font-medium mb-4">Instructional Designer</p>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              Hello I'm{' '}
+              <span className="text-green-400 block">Richard de la Cruz</span>
+            </h1>
+            <p className="text-gray-300 text-lg leading-relaxed max-w-2xl">
+              I excel at crafting elegant digital learning experiences and 
+              I am proficient in various instructional design methodologies and 
+              technologies.
+            </p>
+          </motion.div>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.6 }}
+            className="flex flex-wrap gap-4 items-center"
+          >
+            <button className="px-8 py-3 border-2 border-green-400 text-green-400 rounded-full hover:bg-green-400 hover:text-gray-900 transition-all duration-300 flex items-center gap-2 font-medium">
+              <Download size={20} />
+              DOWNLOAD CV
+            </button>
+            
+            <div className="flex gap-4 ml-4">
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="w-12 h-12 border-2 border-gray-600 rounded-full flex items-center justify-center hover:border-green-400 hover:text-green-400 transition-colors cursor-pointer"
+              >
+                <Github size={20} />
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="w-12 h-12 border-2 border-gray-600 rounded-full flex items-center justify-center hover:border-green-400 hover:text-green-400 transition-colors cursor-pointer"
+              >
+                <Linkedin size={20} />
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="w-12 h-12 border-2 border-gray-600 rounded-full flex items-center justify-center hover:border-green-400 hover:text-green-400 transition-colors cursor-pointer"
+              >
+                <Mail size={20} />
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="w-12 h-12 border-2 border-gray-600 rounded-full flex items-center justify-center hover:border-green-400 hover:text-green-400 transition-colors cursor-pointer"
+              >
+                <Twitter size={20} />
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Right side - Profile image with rotating border */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="relative flex justify-center"
+        >
+          <div className="relative">
+            {/* Rotating green border */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="absolute inset-0 w-80 h-80 rounded-full"
+              style={{
+                background: `conic-gradient(from 0deg, transparent 60%, #10b981 80%, transparent 100%)`
+              }}
+            />
+            
+            {/* Profile image */}
+            <div className="relative w-72 h-72 m-4 rounded-full overflow-hidden border-4 border-gray-800">
+              <img 
+                src="/lovable-uploads/4c81daa7-2065-4776-80a5-c26a4c04aa29.png" 
+                alt="Richard de la Cruz"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Stats section */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, duration: 0.8 }}
+        className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-full max-w-4xl"
+      >
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <div className="text-4xl md:text-5xl font-bold text-white mb-2">5+</div>
+            <div className="text-gray-400 text-sm uppercase tracking-wider">Years of experience</div>
+          </div>
+          <div>
+            <div className="text-4xl md:text-5xl font-bold text-white mb-2">50+</div>
+            <div className="text-gray-400 text-sm uppercase tracking-wider">Projects completed</div>
+          </div>
+          <div>
+            <div className="text-4xl md:text-5xl font-bold text-white mb-2">3</div>
+            <div className="text-gray-400 text-sm uppercase tracking-wider">Industries mastered</div>
+          </div>
+          <div>
+            <div className="text-4xl md:text-5xl font-bold text-white mb-2">100+</div>
+            <div className="text-gray-400 text-sm uppercase tracking-wider">Training modules</div>
+          </div>
+        </div>
+      </motion.div>
     </motion.section>
   );
 };

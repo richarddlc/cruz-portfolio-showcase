@@ -40,7 +40,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
       <HeroSection />
       <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
       <motion.main
@@ -48,7 +48,7 @@ const Index = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-6xl mx-auto px-4 py-8"
+        className="max-w-6xl mx-auto px-4 py-8 bg-gray-900/50 backdrop-blur-sm"
       >
         {renderActiveSection()}
       </motion.main>
