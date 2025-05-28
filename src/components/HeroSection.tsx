@@ -1,9 +1,23 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Download, Linkedin } from 'lucide-react';
 
 const HeroSection = () => {
+  const handleDownloadCV = () => {
+    // Create a temporary link element to trigger download
+    const link = document.createElement('a');
+    link.href = '/path-to-your-cv.pdf'; // You'll need to add your CV file to the public folder
+    link.download = 'Richard_de_la_Cruz_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleLinkedInClick = () => {
+    window.open('https://ph.linkedin.com/in/richard-de-la-cruz-7782bb92', '_blank');
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0, y: -50 }}
@@ -47,7 +61,10 @@ const HeroSection = () => {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="flex flex-wrap gap-4 items-center"
           >
-            <button className="px-8 py-3 border-2 border-green-400 text-green-400 rounded-full hover:bg-green-400 hover:text-gray-900 transition-all duration-300 flex items-center gap-2 font-medium">
+            <button 
+              onClick={handleDownloadCV}
+              className="px-8 py-3 border-2 border-green-400 text-green-400 rounded-full hover:bg-green-400 hover:text-gray-900 transition-all duration-300 flex items-center gap-2 font-medium"
+            >
               <Download size={20} />
               DOWNLOAD CV
             </button>
@@ -55,27 +72,10 @@ const HeroSection = () => {
             <div className="flex gap-4 ml-4">
               <motion.div
                 whileHover={{ scale: 1.1 }}
-                className="w-12 h-12 border-2 border-gray-600 rounded-full flex items-center justify-center hover:border-green-400 hover:text-green-400 transition-colors cursor-pointer"
-              >
-                <Github size={20} />
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.1 }}
+                onClick={handleLinkedInClick}
                 className="w-12 h-12 border-2 border-gray-600 rounded-full flex items-center justify-center hover:border-green-400 hover:text-green-400 transition-colors cursor-pointer"
               >
                 <Linkedin size={20} />
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="w-12 h-12 border-2 border-gray-600 rounded-full flex items-center justify-center hover:border-green-400 hover:text-green-400 transition-colors cursor-pointer"
-              >
-                <Mail size={20} />
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="w-12 h-12 border-2 border-gray-600 rounded-full flex items-center justify-center hover:border-green-400 hover:text-green-400 transition-colors cursor-pointer"
-              >
-                <Twitter size={20} />
               </motion.div>
             </div>
           </motion.div>
