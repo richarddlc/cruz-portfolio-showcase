@@ -28,8 +28,8 @@ const Navigation = ({ activeTab, setActiveTab }: NavigationProps) => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`relative px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center space-x-2 ${
                   activeTab === tab.id
-                    ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+                    ? 'text-green-600 bg-green-50'
+                    : 'text-gray-600 hover:text-green-600 hover:bg-gray-50'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -39,7 +39,7 @@ const Navigation = ({ activeTab, setActiveTab }: NavigationProps) => {
                 {activeTab === tab.id && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute inset-0 bg-blue-100 rounded-lg -z-10"
+                    className="absolute inset-0 bg-green-100 rounded-lg -z-10"
                     initial={false}
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                   />

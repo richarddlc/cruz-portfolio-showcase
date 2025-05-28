@@ -18,7 +18,7 @@ const ResumeSection = () => {
     >
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-white mb-4">Professional Resume</h2>
-        <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+        <div className="w-24 h-1 bg-green-400 mx-auto rounded-full"></div>
       </div>
 
       <ProfessionalSummary />

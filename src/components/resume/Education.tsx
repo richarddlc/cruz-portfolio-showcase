@@ -16,7 +16,7 @@ const Education = () => {
       <Card className="p-6 hover:shadow-lg transition-shadow duration-300">
         <CardContent className="p-0">
           <h4 className="text-lg font-semibold text-gray-800">{education.degree}</h4>
-          <p className="text-blue-600 font-medium">{education.school}</p>
+          <p className="text-green-600 font-medium">{education.school}</p>
           <p className="text-gray-500 text-sm">{education.year}</p>
           <p className="text-gray-600 mt-2">{education.details}</p>
         </CardContent>

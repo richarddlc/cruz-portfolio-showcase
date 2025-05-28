@@ -34,7 +34,7 @@ const CoreSkills = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.05 }}
               >
-                <Badge variant="outline" className="text-blue-700 border-blue-300 hover:bg-blue-50 text-xs">
+                <Badge variant="outline" className="text-green-700 border-green-300 hover:bg-green-50 text-xs">
                   {skill}
                 </Badge>
               </motion.div>

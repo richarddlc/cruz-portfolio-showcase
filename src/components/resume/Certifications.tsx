@@ -23,7 +23,7 @@ const Certifications = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5 + index * 0.1 }}
               >
-                <Badge variant="outline" className="text-blue-700 border-blue-300 hover:bg-blue-50 text-sm">
+                <Badge variant="outline" className="text-green-700 border-green-300 hover:bg-green-50 text-sm">
                   {cert}
                 </Badge>
               </motion.div>

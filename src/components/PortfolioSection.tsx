@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
@@ -92,24 +91,24 @@ const PortfolioSection = () => {
       
       <div className="space-y-6">
         {/* Project Metadata */}
-        <div className="grid md:grid-cols-2 gap-4 p-4 bg-blue-50 rounded-lg">
+        <div className="grid md:grid-cols-2 gap-4 p-4 bg-green-50 rounded-lg">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <User className="w-4 h-4 text-blue-600" />
+              <User className="w-4 h-4 text-green-600" />
               <span className="font-medium">Client:</span> {project.details.client}
             </div>
             <div className="flex items-center gap-2">
-              <Wrench className="w-4 h-4 text-blue-600" />
+              <Wrench className="w-4 h-4 text-green-600" />
               <span className="font-medium">Tool Used:</span> {project.details.tool}
             </div>
           </div>
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <Briefcase className="w-4 h-4 text-blue-600" />
+              <Briefcase className="w-4 h-4 text-green-600" />
               <span className="font-medium">Role:</span> {project.details.role}
             </div>
             <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-blue-600" />
+              <Calendar className="w-4 h-4 text-green-600" />
               <span className="font-medium">Date:</span> {project.details.date}
             </div>
           </div>
@@ -117,7 +116,7 @@ const PortfolioSection = () => {
 
         {/* Project Type */}
         <div className="flex items-center gap-2">
-          <Badge variant="secondary" className="text-blue-700 border-blue-300">
+          <Badge variant="secondary" className="text-green-700 border-green-300">
             {project.details.type}
           </Badge>
         </div>
@@ -125,7 +124,7 @@ const PortfolioSection = () => {
         {/* Project Overview */}
         <div>
           <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center gap-2">
-            <Target className="w-5 h-5 text-blue-600" />
+            <Target className="w-5 h-5 text-green-600" />
             Project Overview
           </h3>
           <p className="text-gray-600 leading-relaxed">{project.details.overview}</p>
@@ -192,7 +191,7 @@ const PortfolioSection = () => {
         <div className="pt-4 border-t">
           <Button 
             onClick={() => window.open(project.projectUrl, '_blank')}
-            className="bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2"
+            className="bg-green-600 hover:bg-green-700 text-white flex items-center gap-2"
           >
             <ExternalLink className="w-4 h-4" />
             View Project
@@ -233,9 +232,9 @@ const PortfolioSection = () => {
       className="space-y-8"
     >
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-800 mb-4">Portfolio</h2>
-        <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full mb-4"></div>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <h2 className="text-4xl font-bold text-white mb-4">Portfolio</h2>
+        <div className="w-24 h-1 bg-green-400 mx-auto rounded-full mb-4"></div>
+        <p className="text-gray-300 max-w-2xl mx-auto">
           Explore my featured instructional design projects that have transformed learning experiences 
           and delivered measurable results across various industries and learning contexts.
         </p>
@@ -272,7 +271,7 @@ const PortfolioSection = () => {
                       <h4 className="font-medium text-gray-800 mb-2">Technologies & Methods:</h4>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, i) => (
-                          <Badge key={i} variant="outline" className="text-blue-700 border-blue-300">
+                          <Badge key={i} variant="outline" className="text-green-700 border-green-300">
                             {tech}
                           </Badge>
                         ))}
@@ -286,7 +285,7 @@ const PortfolioSection = () => {
                     
                     <Dialog>
                       <DialogTrigger asChild>
-                        <Button variant="outline" className="hover:bg-blue-50 hover:text-blue-700 hover:border-blue-300">
+                        <Button variant="outline" className="hover:bg-green-50 hover:text-green-700 hover:border-green-300">
                           {project.id === 'escape-room' ? 'Show more' : 'View Case Study'}
                         </Button>
                       </DialogTrigger>
@@ -300,7 +299,7 @@ const PortfolioSection = () => {
         ))}
       </div>
 
-      <Card className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
+      <Card className="p-6 bg-gradient-to-r from-green-50 to-green-100 border-green-200">
         <CardContent className="p-0 text-center">
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">Ready to Collaborate?</h3>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
@@ -309,7 +308,7 @@ const PortfolioSection = () => {
           </p>
           <Button 
             onClick={scrollToContact}
-            className="bg-blue-600 hover:bg-blue-700"
+            className="bg-green-600 hover:bg-green-700"
           >
             Discuss Your Project
           </Button>
