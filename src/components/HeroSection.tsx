@@ -106,7 +106,7 @@ const HeroSection = () => {
             {/* Profile image */}
             <div className="relative w-72 h-72 m-4 rounded-full overflow-hidden border-4 border-gray-800">
               <img 
-                src="/lovable-uploads/4c81daa7-2065-4776-80a5-c26a4c04aa29.png" 
+                src="/lovable-uploads/1e5ba4e4-15a5-4cf4-8f50-28a9e3130715.png" 
                 alt="Richard de la Cruz"
                 className="w-full h-full object-cover"
               />
