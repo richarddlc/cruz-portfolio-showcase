@@ -9,7 +9,7 @@ import PortfolioSection from '../components/PortfolioSection';
 import ContactSection from '../components/ContactSection';
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState('about');
+  const [activeTab, setActiveTab] = useState('');
 
   // Listen for custom tab change events from portfolio section
   useEffect(() => {
@@ -35,7 +35,7 @@ const Index = () => {
       case 'contact':
         return <ContactSection />;
       default:
-        return <AboutSection />;
+        return null;
     }
   };
 
@@ -43,15 +43,17 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-x-hidden">
       <HeroSection />
       <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
-      <motion.main
-        key={activeTab}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="max-w-6xl mx-auto px-4 py-8 bg-gray-900/50 backdrop-blur-sm"
-      >
-        {renderActiveSection()}
-      </motion.main>
+      {activeTab && (
+        <motion.main
+          key={activeTab}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-6xl mx-auto px-4 py-8 bg-gray-900/50 backdrop-blur-sm"
+        >
+          {renderActiveSection()}
+        </motion.main>
+      )}
     </div>
   );
 };

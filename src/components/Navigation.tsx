@@ -17,16 +17,16 @@ const Navigation = ({ activeTab, setActiveTab }: NavigationProps) => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-lg border-b border-gray-200">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-center space-x-1 py-4">
+    <nav className="fixed top-4 right-4 z-50">
+      <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg border border-gray-200 p-2">
+        <div className="flex flex-col space-y-1 md:flex-row md:space-y-0 md:space-x-1">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             return (
               <motion.button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center space-x-2 ${
+                className={`relative px-3 py-2 rounded-md font-medium transition-all duration-300 flex items-center space-x-2 text-sm whitespace-nowrap ${
                   activeTab === tab.id
                     ? 'text-green-600 bg-green-50'
                     : 'text-gray-600 hover:text-green-600 hover:bg-gray-50'
@@ -34,12 +34,12 @@ const Navigation = ({ activeTab, setActiveTab }: NavigationProps) => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Icon size={20} />
-                <span>{tab.label}</span>
+                <Icon size={16} />
+                <span className="hidden sm:inline">{tab.label}</span>
                 {activeTab === tab.id && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute inset-0 bg-green-100 rounded-lg -z-10"
+                    className="absolute inset-0 bg-green-100 rounded-md -z-10"
                     initial={false}
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                   />
