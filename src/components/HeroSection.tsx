@@ -20,6 +20,7 @@ const HeroSection = () => {
 
   return (
     <motion.section
+      id="home"
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -34,20 +35,20 @@ const HeroSection = () => {
         <div className="absolute top-1/2 left-1/4 w-16 h-16 border border-green-400 rounded-full"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 items-center w-full">
         {/* Left side - Text content */}
-        <div className="space-y-8">
+        <div className="space-y-6 lg:order-1">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <p className="text-green-400 text-lg font-medium mb-4">Instructional Designer</p>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <p className="text-green-400 text-base font-medium mb-3">Instructional Designer</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               Hello I'm{' '}
               <span className="text-green-400 block">Richard de la Cruz</span>
             </h1>
-            <p className="text-gray-300 text-lg leading-relaxed max-w-2xl">
+            <p className="text-gray-300 text-base leading-relaxed max-w-xl">
               I excel at crafting elegant digital learning experiences and 
               I am proficient in various instructional design methodologies and 
               technologies.
@@ -63,9 +64,9 @@ const HeroSection = () => {
           >
             <button 
               onClick={handleDownloadCV}
-              className="px-8 py-3 border-2 border-green-400 text-green-400 rounded-full hover:bg-green-400 hover:text-gray-900 transition-all duration-300 flex items-center gap-2 font-medium"
+              className="px-6 py-3 border-2 border-green-400 text-green-400 rounded-full hover:bg-green-400 hover:text-gray-900 transition-all duration-300 flex items-center gap-2 font-medium text-sm"
             >
-              <Download size={20} />
+              <Download size={18} />
               DOWNLOAD CV
             </button>
             
@@ -73,9 +74,9 @@ const HeroSection = () => {
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 onClick={handleLinkedInClick}
-                className="w-12 h-12 border-2 border-gray-600 rounded-full flex items-center justify-center hover:border-green-400 hover:text-green-400 transition-colors cursor-pointer"
+                className="w-10 h-10 border-2 border-gray-600 rounded-full flex items-center justify-center hover:border-green-400 hover:text-green-400 transition-colors cursor-pointer"
               >
-                <Linkedin size={20} />
+                <Linkedin size={18} />
               </motion.div>
             </div>
           </motion.div>
@@ -86,7 +87,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="relative flex justify-center"
+          className="relative flex justify-center lg:order-2"
         >
           <div className="relative">
             {/* Rotating green border */}
@@ -97,14 +98,14 @@ const HeroSection = () => {
                 repeat: Infinity,
                 ease: "linear"
               }}
-              className="absolute inset-0 w-80 h-80 rounded-full"
+              className="absolute inset-0 w-64 h-64 md:w-72 md:h-72 rounded-full"
               style={{
                 background: `conic-gradient(from 0deg, transparent 60%, #10b981 80%, transparent 100%)`
               }}
             />
             
             {/* Profile image */}
-            <div className="relative w-72 h-72 m-4 rounded-full overflow-hidden border-4 border-gray-800">
+            <div className="relative w-56 h-56 md:w-64 md:h-64 m-4 rounded-full overflow-hidden border-4 border-gray-800">
               <img 
                 src="/lovable-uploads/1e5ba4e4-15a5-4cf4-8f50-28a9e3130715.png" 
                 alt="Richard de la Cruz"
@@ -120,24 +121,24 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.8 }}
-        className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-full max-w-4xl"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 w-full max-w-4xl"
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center px-4">
           <div>
-            <div className="text-4xl md:text-5xl font-bold text-white mb-2">5+</div>
-            <div className="text-gray-400 text-sm uppercase tracking-wider">Years of experience</div>
+            <div className="text-3xl md:text-4xl font-bold text-white mb-2">5+</div>
+            <div className="text-gray-400 text-xs uppercase tracking-wider">Years of experience</div>
           </div>
           <div>
-            <div className="text-4xl md:text-5xl font-bold text-white mb-2">50+</div>
-            <div className="text-gray-400 text-sm uppercase tracking-wider">Projects completed</div>
+            <div className="text-3xl md:text-4xl font-bold text-white mb-2">50+</div>
+            <div className="text-gray-400 text-xs uppercase tracking-wider">Projects completed</div>
           </div>
           <div>
-            <div className="text-4xl md:text-5xl font-bold text-white mb-2">3</div>
-            <div className="text-gray-400 text-sm uppercase tracking-wider">Industries mastered</div>
+            <div className="text-3xl md:text-4xl font-bold text-white mb-2">3</div>
+            <div className="text-gray-400 text-xs uppercase tracking-wider">Industries mastered</div>
           </div>
           <div>
-            <div className="text-4xl md:text-5xl font-bold text-white mb-2">100+</div>
-            <div className="text-gray-400 text-sm uppercase tracking-wider">Training modules</div>
+            <div className="text-3xl md:text-4xl font-bold text-white mb-2">100+</div>
+            <div className="text-gray-400 text-xs uppercase tracking-wider">Training modules</div>
           </div>
         </div>
       </motion.div>

@@ -24,36 +24,50 @@ const Index = () => {
     };
   }, []);
 
-  const renderActiveSection = () => {
-    switch (activeTab) {
-      case 'about':
-        return <AboutSection />;
-      case 'resume':
-        return <ResumeSection />;
-      case 'portfolio':
-        return <PortfolioSection />;
-      case 'contact':
-        return <ContactSection />;
-      default:
-        return null;
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-x-hidden">
       <HeroSection />
       <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
-      {activeTab && (
-        <motion.main
-          key={activeTab}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-6xl mx-auto px-4 py-8 bg-gray-900/50 backdrop-blur-sm"
-        >
-          {renderActiveSection()}
-        </motion.main>
-      )}
+      
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-6xl mx-auto px-4 py-16 bg-gray-900/50 backdrop-blur-sm"
+      >
+        <AboutSection />
+      </motion.section>
+
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="max-w-6xl mx-auto px-4 py-16 bg-gray-900/50 backdrop-blur-sm"
+      >
+        <ResumeSection />
+      </motion.section>
+
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="max-w-6xl mx-auto px-4 py-16 bg-gray-900/50 backdrop-blur-sm"
+      >
+        <div id="portfolio">
+          <PortfolioSection />
+        </div>
+      </motion.section>
+
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        className="max-w-6xl mx-auto px-4 py-16 bg-gray-900/50 backdrop-blur-sm"
+      >
+        <div id="contact">
+          <ContactSection />
+        </div>
+      </motion.section>
     </div>
   );
 };

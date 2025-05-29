@@ -16,6 +16,21 @@ const Navigation = ({ activeTab, setActiveTab }: NavigationProps) => {
     { id: 'contact', label: 'Contact', icon: Mail },
   ];
 
+  const handleTabClick = (tabId: string) => {
+    setActiveTab(tabId);
+    
+    // Smooth scroll to section
+    setTimeout(() => {
+      const element = document.getElementById(tabId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    }, 100);
+  };
+
   return (
     <nav className="fixed top-4 right-4 z-50">
       <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg border border-gray-200 p-2">
@@ -25,7 +40,7 @@ const Navigation = ({ activeTab, setActiveTab }: NavigationProps) => {
             return (
               <motion.button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabClick(tab.id)}
                 className={`relative px-3 py-2 rounded-md font-medium transition-all duration-300 flex items-center space-x-2 text-sm whitespace-nowrap ${
                   activeTab === tab.id
                     ? 'text-green-600 bg-green-50'
