@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
@@ -30,7 +31,7 @@ const AboutSection = () => {
     >
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-        <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+        <div className="w-24 h-1 bg-green-400 mx-auto rounded-full"></div>
       </div>
 
       <div className="grid md:grid-cols-2 gap-8">
@@ -61,7 +62,7 @@ const AboutSection = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-blue-50 text-blue-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors"
+                  className="bg-green-50 text-green-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-green-100 transition-colors"
                 >
                   {skill}
                 </motion.div>
@@ -91,23 +92,23 @@ const AboutSection = () => {
             <h3 className="text-2xl font-semibold text-gray-800 mb-4">Professional Highlights</h3>
             <ul className="space-y-2 text-gray-600">
               <li className="flex items-start">
-                <span className="text-blue-600 mr-2">•</span>
+                <span className="text-green-600 mr-2">•</span>
                 5+ years in instructional design across multiple industries
               </li>
               <li className="flex items-start">
-                <span className="text-blue-600 mr-2">•</span>
+                <span className="text-green-600 mr-2">•</span>
                 Created 20+ interactive eLearning modules
               </li>
               <li className="flex items-start">
-                <span className="text-blue-600 mr-2">•</span>
+                <span className="text-green-600 mr-2">•</span>
                 Improved learner retention by up to 25%
               </li>
               <li className="flex items-start">
-                <span className="text-blue-600 mr-2">•</span>
+                <span className="text-green-600 mr-2">•</span>
                 Expert in SCORM-compliant content development
               </li>
               <li className="flex items-start">
-                <span className="text-blue-600 mr-2">•</span>
+                <span className="text-green-600 mr-2">•</span>
                 Licensed Professional Agriculturist
               </li>
             </ul>
@@ -115,7 +116,7 @@ const AboutSection = () => {
         </Card>
       </div>
 
-      <Card className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
+      <Card className="p-6 bg-gradient-to-r from-green-50 to-green-100 border-green-200">
         <CardContent className="p-0 text-center">
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">Design Philosophy</h3>
           <p className="text-lg text-gray-700 italic max-w-3xl mx-auto leading-relaxed">
