@@ -26,6 +26,9 @@ export default defineConfig({
   // ❌ REMOVE or COMMENT OUT this line:
   // root: path.resolve(import.meta.dirname, "client"),
 
+  server: {
+    port: 8080,
+  },
   build: {
     outDir: path.resolve(import.meta.dirname, "dist"), // ✅ keep this
     emptyOutDir: true,
